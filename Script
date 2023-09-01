@@ -1,0 +1,19 @@
+warn("Anti afk running")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+warn("Anti afk ran")
+game:GetService("VirtualUser"):CaptureController()
+game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/PpMcEF8z", true))()
+local example = library:CreateWindow({
+  text = "Moto TrackDay Project"
+})
+example:AddToggle("Auto Money", function(state)
+_G.test = (state and true or false)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+while _G.test do
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = _G.test
+game:GetService("ReplicatedStorage").Event.ThrottleMoney:FireServer(999999)
+task.wait(10)
+end
+end)
